@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var date = new Date();
+  document.write('<p>WeixinJSBridge: ' + typeof WeixinJSBridge + '</p>');
+  setTimeout(function(){
+    document.write('<p>WeixinJSBridge on 5000ms delay: ' + typeof WeixinJSBridge + '</p>');
+  }, 5000);
+  document.addEventListener('WeixinJSBridgeReady', function(){
+    document.write('<p>WeixinJSBridgeReady: ' + (new Date() - date) + 'ms</p>');
+    document.write('<p>before WeixinJSBridgeReady WeixinJSBridge: ' + typeof WeixinJSBridge + '</p>');
+  }, false);
+</script>
+</body>
+</html>
