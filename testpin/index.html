@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="main">
+  <span>101<br></span>
+  <span>102<br></span>
+  <span>103<br></span>
+  <span>104<br></span>
+  <span>105<br></span>
+  <span>106<br></span>
+  <span>107<br></span>
+  <span>108<br></span>
+  <p id="pintest">hhhhhhhhhhhhhhhhhhhhhhhh111</p>
+  <span>201<br></span>
+  <span>202<br></span>
+  <span>203<br></span>
+  <span>204<br></span>
+  <span>205<br></span>
+  <span>206<br></span>
+  <span>207<br></span>
+  <span>208<br></span>
+</div>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="jquery.pin.min.js"></script>
+<script>
+  $(document).ready(function () {
+    for (var i = 0; i < 100; i++) {
+      $("#main").append('<span>' + i + '<br></span>')
+    }
+  });
+  $('#pintest').pin()
+  $('#pintest2').pin()
+</script>
+</body>
+</html>
