@@ -14,6 +14,6 @@
     .message{
         color:red;
         font-size:36px;
-        font-weight:blod;
+        font-weight:bold;
     }
 </style>
