@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      background: #000;
+    }
+
+    .number {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      left: 296px;
+      top: 223px;
+      transform-style: preserve-3d;
+      transform-origin: center center;
+      transform: perspective(1200px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      animation: 10s move linear infinite
+    }
+
+    .number div {
+      width: 160px;
+      height: 160px;
+      padding:20px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 60px;
+      font-family: arial;
+      line-height: 100px;
+      border: 3px solid #19decd;
+      box-shadow: 0 0 100px #19decd;
+      text-shadow: 0 0 20px #fff;
+      color: #fff;
+      display:table;
+      vertical-align: middle;
+    }
+    .number div span{
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    .number div:nth-of-type(1) {
+      transform: translateZ(100px)
+    }
+
+    .number div:nth-of-type(2) {
+      transform: translateZ(-107px)
+    }
+
+    .number div:nth-of-type(3) {
+      transform-origin: top;
+      transform: translateZ(100px) rotateX(-90deg)
+    }
+
+    .number div:nth-of-type(4) {
+      transform-origin: bottom;
+      transform: translateZ(100px) rotateX(90deg)
+    }
+
+    .number div:nth-of-type(5) {
+      transform-origin: left;
+      transform: translateZ(100px) rotateY(90deg)
+    }
+
+    .number div:nth-of-type(6) {
+      transform-origin: right;
+      transform: translateZ(100px) rotateY(-90deg)
+    }
+
+    @keyframes move {
+      100% {
+        transform: perspective(800px) rotateX(360deg) rotateY(360deg) rotateZ(360deg)
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+<div class="number">
+  <div><span>1</span></div>
+  <div><span>2</span></div>
+  <div><span>3</span></div>
+  <div><span>4</span></div>
+  <div><span>5</span></div>
+  <div><span>6</span></div>
+</div>
+</body>
+</html>
