@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text" id="ipt">
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $('#ipt').keyup(function() {
+    if (/^0$/.test($(this).val())) {
+      $(this).val('');
+    } else if (/^\.$/.test($(this).val())) {
+      $(this).val('0.')
+    } else if (!/^\d{1,18}(\.\d{0,2}){0,1}$/.test($(this).val())) {
+      alert('输入错误');
+      $(this).val('');
+    }
+  })
+</script>
+</body>
+</html>
