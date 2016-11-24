@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text" id="ipt">
+<p id="out"></p>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  var unit = ['', '万', '亿'];
+  var unitrep = ['', '拾', '佰', '仟'];
+  var Numlist = [];
+  $('#ipt').on('change', function(){
+    Numlist = [];
+    var ipt = $(this).val();
+    if(/^\d{1,18}(\.\d{1,2}){0,1}$/.test(ipt)){
+      var numarr = ((parseFloat(ipt) * 100).toFixed(0) + '').split('');
+      var f = numarr.pop();
+      if(f == '0'){
+        Numlist.push('正')
+      }else{
+        Numlist.push('分');
+        Numlist.push(maparray(f));
+      }
+
+      var j = numarr.pop();
+      if(j == '0'){
+      }else{
+        Numlist.push('角');
+        Numlist.push(maparray(j));
+      }
+      console.log(Numlist)
+
+    }else{
+      $('#out').text('输入错误')
+    }
+  })
+
+  var maparray = function(n){
+    var num = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
+    switch (n){
+      case '0': return num[0]; break;
+      case '1': return num[1]; break;
+      case '2': return num[2]; break;
+      case '3': return num[3]; break;
+      case '4': return num[4]; break;
+      case '5': return num[5]; break;
+      case '6': return num[6]; break;
+      case '7': return num[7]; break;
+      case '8': return num[8]; break;
+      case '9': return num[9]; break;
+    }
+  }
+</script>
+</body>
+</html>
