@@ -9,48 +9,112 @@
 <p id="out"></p>
 <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 <script>
-  var unit = ['', '万', '亿'];
+  var unit = ['元', '万', '亿', '万'];
   var unitrep = ['', '拾', '佰', '仟'];
   var Numlist = [];
-  $('#ipt').on('change', function(){
+  $('#ipt').on('change', function () {
     Numlist = [];
     var ipt = $(this).val();
-    if(/^\d{1,18}(\.\d{1,2}){0,1}$/.test(ipt)){
-      var numarr = ((parseFloat(ipt) * 100).toFixed(0) + '').split('');
-      var f = numarr.pop();
-      if(f == '0'){
+    if (/^\d{1,18}(\.\d{1,2}){0,1}$/.test(ipt)) {
+      var numarr = ipt.split('.');
+      if (!numarr[1]) {
+        numarr.push('00')
+      } else {
+        numarr[1].length == 1 ? numarr.push('0') : '';
+      }
+      numarr = numarr.join('').split('');
+      var f = numarr.pop(), fz = false;
+      // 处理分
+      if (f == '0') {
+        fz = true;
         Numlist.push('正')
-      }else{
+      } else {
         Numlist.push('分');
         Numlist.push(maparray(f));
       }
-
+      // 处理角
       var j = numarr.pop();
-      if(j == '0'){
-      }else{
+      if (j == '0') {
+        if (!fz) {
+          Numlist.push('零')
+        }
+      } else {
         Numlist.push('角');
         Numlist.push(maparray(j));
       }
-      console.log(Numlist)
+      // 处理整数部分
+      var zf = 0, b = false, c;
+      for (var i = 0; i < unit.length; i++) {
+        if (b || numarr.length == 0) {
+          break;
+        } else {
+          if(i == 2){
+            if(zf >= unitrep.length - 1){
+              Numlist.pop();
+            }
+          }
+          Numlist.push(unit[i]);
+          for (var k = 0; k < unitrep.length; k++) {
+            if (numarr.length == 0) {
+              b = true;
+              break;
+            } else {
+              c = numarr.pop();
+              if (c == '0') {
+                if (!(k == 0) && !zf) {
+                  Numlist.push('零')
+                }
+                zf++;
+              } else {
+                zf = 0;
+                Numlist.push(unitrep[k]);
+                Numlist.push(maparray(c));
+              }
+            }
+          }
+        }
+      }
 
-    }else{
+      $('#out').text(Numlist.reverse().join(''))
+
+    } else {
       $('#out').text('输入错误')
     }
-  })
+  });
 
-  var maparray = function(n){
+  var maparray = function (n) {
     var num = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
-    switch (n){
-      case '0': return num[0]; break;
-      case '1': return num[1]; break;
-      case '2': return num[2]; break;
-      case '3': return num[3]; break;
-      case '4': return num[4]; break;
-      case '5': return num[5]; break;
-      case '6': return num[6]; break;
-      case '7': return num[7]; break;
-      case '8': return num[8]; break;
-      case '9': return num[9]; break;
+    switch (n) {
+      case '0':
+        return num[0];
+        break;
+      case '1':
+        return num[1];
+        break;
+      case '2':
+        return num[2];
+        break;
+      case '3':
+        return num[3];
+        break;
+      case '4':
+        return num[4];
+        break;
+      case '5':
+        return num[5];
+        break;
+      case '6':
+        return num[6];
+        break;
+      case '7':
+        return num[7];
+        break;
+      case '8':
+        return num[8];
+        break;
+      case '9':
+        return num[9];
+        break;
     }
   }
 </script>
