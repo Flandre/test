@@ -15,7 +15,7 @@
   $('#ipt').on('change', function () {
     Numlist = [];
     var ipt = $(this).val();
-    if (/^\d{1,18}(\.\d{1,2}){0,1}$/.test(ipt)) {
+    if (/^\d{1,16}(\.\d{1,2}){0,1}$/.test(ipt)) {
       var numarr = ipt.split('.');
       if (!numarr[1]) {
         numarr.push('00')
@@ -76,7 +76,6 @@
                 Numlist.push(maparray(c));
               }
             }
-            console.log(zc)
           }
         }
       }
