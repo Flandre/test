@@ -48,14 +48,14 @@
         if (b || numarr.length == 0) {
           break;
         } else {
+          if(zc % 4 == 0 && zc > 1 && !uz){
+            uz = true;
+            Numlist.splice(-1, 0, '零');
+          }
           if (i == 2) {
             if (zc >= unitrep.length - 1) {
               Numlist.pop();
             }
-          }
-          if(zc % 4 == 0 && zc > 1 && !uz){
-            uz = true;
-            Numlist.push('零');
           }
           Numlist.push(unit[i]);
           for (var k = 0; k < unitrep.length; k++) {
