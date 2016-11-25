@@ -43,15 +43,19 @@
         Numlist.push(maparray(j));
       }
       // 处理整数部分
-      var zf = 0, b = false, c, uz = false;
+      var zc = 0, b = false, c, uz = true;
       for (var i = 0; i < unit.length; i++) {
         if (b || numarr.length == 0) {
           break;
         } else {
           if (i == 2) {
-            if (zf >= unitrep.length - 1) {
+            if (zc >= unitrep.length - 1) {
               Numlist.pop();
             }
+          }
+          if(zc % 4 == 0 && zc > 1 && !uz){
+            uz = true;
+            Numlist.push('零');
           }
           Numlist.push(unit[i]);
           for (var k = 0; k < unitrep.length; k++) {
@@ -61,16 +65,18 @@
             } else {
               c = numarr.pop();
               if (c == '0') {
-                if (!(k == 0) && !zf) {
+                if (!(k == 0) && !zc) {
                   Numlist.push('零')
                 }
-                zf++;
+                zc++;
               } else {
-                zf = 0;
+                zc = 0;
+                uz = false;
                 Numlist.push(unitrep[k]);
                 Numlist.push(maparray(c));
               }
             }
+            console.log(zc)
           }
         }
       }
