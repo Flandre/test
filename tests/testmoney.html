@@ -43,13 +43,13 @@
         Numlist.push(maparray(j));
       }
       // 处理整数部分
-      var zf = 0, b = false, c;
+      var zf = 0, b = false, c, uz = false;
       for (var i = 0; i < unit.length; i++) {
         if (b || numarr.length == 0) {
           break;
         } else {
-          if(i == 2){
-            if(zf >= unitrep.length - 1){
+          if (i == 2) {
+            if (zf >= unitrep.length - 1) {
               Numlist.pop();
             }
           }
@@ -87,36 +87,134 @@
     switch (n) {
       case '0':
         return num[0];
-        break;
       case '1':
         return num[1];
-        break;
       case '2':
         return num[2];
-        break;
       case '3':
         return num[3];
-        break;
       case '4':
         return num[4];
-        break;
       case '5':
         return num[5];
-        break;
       case '6':
         return num[6];
-        break;
       case '7':
         return num[7];
-        break;
       case '8':
         return num[8];
-        break;
       case '9':
         return num[9];
-        break;
     }
   }
+
+
+  /*
+   * by hanjiang
+   */
+  /*
+   console.log(full_toword(987654321));
+   console.log(full_toword(907654321));
+   console.log(full_toword(9000900654321));
+   console.log(full_toword(9000900000000));
+   console.log(full_toword(100000001000));
+
+   function full_toword(i) {
+   var a = [];
+   a[0] = ~~(i / 1000000000000);
+   a[1] = ~~(i / 100000000 % 10000);
+   a[2] = ~~(i / 10000 % 10000);
+   a[3] = ~~(i % 10000);
+   var s = [];
+   s[0] = thousand_toword(a[0], "兆");
+   s[1] = thousand_toword(a[1], "亿");
+   s[2] = thousand_toword(a[2], "万");
+   s[3] = thousand_toword(a[3], "");
+   for (var j = 0; j < 4; j++) {
+   if (0 == a [j])
+   s [j] = "";
+   else
+   break;
+   }
+   for (var j = 3; j >= 0; j--) {
+   if (0 == a [j])
+   s [j] = "";
+   else
+   break;
+   }
+   var max;
+   for (max = 0; max < 4; max++) {
+   if (a [max] != 0)
+   break;
+   }
+   for (var j = max + 1; j < 4; j++) {
+   if ((0 != a [j]) && (~~(a [j] / 1000) == 0))
+   s [j] = "零" + s [j];
+   }
+   var _out = s[0] + s[1] + s[2] + s[3];
+   return _out;
+   }
+
+   function thousand_toword(i, ss) {
+   var a = [];
+   a[0] = ~~(i / 1000);
+   a[1] = ~~(i / 100 % 10);
+   a[2] = ~~(i / 10 % 10);
+   a[3] = ~~(i % 10);
+   var s = [];
+   s[0] = toword(a[0], "千");
+   s[1] = toword(a[1], "百");
+   s[2] = toword(a[2], "十");
+   s[3] = toword(a[3], "");
+
+   for (var j = 0; j < 4; j++) {
+   if (0 == a [j])
+   s [j] = "";
+   else
+   break;
+   }
+   for (var j = 3; j >= 0; j--) {
+   if (0 == a [j])
+   s [j] = "";
+   else
+   break;
+   }
+   for (var j = 0; j < 3; j++) {
+   if (("零" == s [j]) && ("零" == s [j + 1]))
+   s [j] = "";
+   }
+   var __out = s[0] + s[1] + s[2] + s[3] + ss;
+   return __out;
+   }
+
+   function toword(i, s) {
+   switch (i) {
+   case 0:
+   return ("零");
+   case 1:
+   return ("一" + s);
+   case 2:
+   return ("二" + s);
+   case 3:
+   return ("三" + s);
+   case 4:
+   return ("四" + s);
+   case 5:
+   return ("五" + s);
+   case 6:
+   return ("六" + s);
+   case 7:
+   return ("七" + s);
+   case 8:
+   return ("八" + s);
+   case 9:
+   return ("九" + s);
+   default:
+   return ("");
+
+   }
+   }
+   */
 </script>
 </body>
 </html>
