@@ -12,6 +12,7 @@
     splitArr = [];
     srcArr = [];
     var linkflag = false;
+    context.replace(' ', '');
     splitArr = context.split('src=');
     for (var i = 0; i < splitArr.length; i++) {
       if (linkflag) {
@@ -23,7 +24,8 @@
       }
       linkflag = /<img/.test(splitArr[i])
     }
-    console.log(srcArr)
+    console.log(srcArr);
+    context.replace(/(^ *| *$)/g, '')
   })
 </script>
 </body>
