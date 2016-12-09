@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text" value="1">
+<button id="c">count</button>
+<button id="cg">change</button>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  var count = 0;
+
+  $('#c').on('click', function(){
+    count ++
+  });
+  $('#cg').on('click', function(){
+    alert(count)
+  });
+</script>
+</body>
+</html>
