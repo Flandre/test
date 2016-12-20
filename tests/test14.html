@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var process = {
+    stdin: {
+      on: function (id, func) {
+        func(document.getElementById(id).value);
+      },
+      resume: function () {
+        console.log('resume');
+      },
+      setEncoding: function (enc) {
+        console.log(enc + '')
+      }
+    }
+  };
+
+  process.stdin.on('aaa')
+</script>
+
+</body>
+</html>
