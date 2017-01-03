@@ -16,7 +16,11 @@
     #section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
     #section4 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
     #section5 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
-    .nav {white-space: nowrap}
+    #section6 {padding-top:50px;height:500px;color: #fff; background-color: #960800;}
+    #section7 {padding-top:50px;height:500px;color: #fff; background-color: #968700;}
+    #section8 {padding-top:50px;height:500px;color: #fff; background-color: #002e96;}
+    #section9 {padding-top:50px;height:500px;color: #fff; background-color: #49964f;}
+    .nav {white-space: nowrap; overflow: hidden;}
     .nav > li {display: inline-block;}
   </style>
 </head>
@@ -24,11 +28,15 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <ul class="nav navbar-nav">
-    <li><a href="#section1">Section 1</a></li>
-    <li><a href="#section2">Section 2</a></li>
-    <li><a href="#section3">Section 3</a></li>
-    <li><a href="#section4">Section 4</a></li>
-    <li><a href="#section5">Section 5</a></li>
+    <li><a href="#section1" data-index="1">Section 1</a></li>
+    <li><a href="#section2" data-index="2">Section 2</a></li>
+    <li><a href="#section3" data-index="3">Section 3</a></li>
+    <li><a href="#section4" data-index="4">Section 4</a></li>
+    <li><a href="#section5" data-index="5">Section 5</a></li>
+    <li><a href="#section6" data-index="6">Section 6</a></li>
+    <li><a href="#section7" data-index="7">Section 7</a></li>
+    <li><a href="#section8" data-index="8">Section 8</a></li>
+    <li><a href="#section9" data-index="9">Section 9</a></li>
   </ul>
 </nav>
 
@@ -57,13 +65,36 @@
   <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
   <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
 </div>
+<div id="section6" class="container-fluid">
+  <h1>Section 4 Submenu 2</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+<div id="section7" class="container-fluid">
+  <h1>Section 4 Submenu 2</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+<div id="section8" class="container-fluid">
+  <h1>Section 4 Submenu 2</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+<div id="section9" class="container-fluid">
+  <h1>Section 4 Submenu 2</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
 
 </body>
 
 <script>
-  $('body').scrollspy({ target: '.navbar-inverse' })
-  $('.nav a').click(function(){
-    console.log('111')
+  $('body').scrollspy({ target: '.navbar-inverse' });
+
+  $('.navbar-inverse').on('activate.bs.scrollspy', function () {
+    $('.nav').animate({
+      scrollLeft: ((parseInt($(".nav li.active a").attr('data-index')) - 2) * 89)
+    }, 200);
   })
 </script>
 </html>
