@@ -16,7 +16,8 @@
     #section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
     #section4 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
     #section5 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
-    .nav > li {float: left;}
+    .nav {white-space: nowrap}
+    .nav > li {display: inline-block;}
   </style>
 </head>
 <body>
@@ -61,5 +62,8 @@
 
 <script>
   $('body').scrollspy({ target: '.navbar-inverse' })
+  $('.nav a').click(function(){
+    console.log('111')
+  })
 </script>
 </html>
