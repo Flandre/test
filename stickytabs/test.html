@@ -90,10 +90,13 @@
 
 <script>
   $('body').scrollspy({ target: '.navbar-inverse' });
+  $('.nav li').each(function(){
+    $(this).attr('data-of', $(this).offset().left);
+  });
 
   $('.navbar-inverse').on('activate.bs.scrollspy', function () {
     $('.nav').animate({
-      scrollLeft: ((parseInt($(".nav li.active a").attr('data-index')) - 2) * 89)
+      scrollLeft: $(".nav li.active").attr('data-of') - $('nav').innerWidth() / 2 + parseInt($(".nav li.active").innerWidth() / 2)
     }, 200);
   })
 </script>
