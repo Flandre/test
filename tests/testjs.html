@@ -11,20 +11,34 @@
     arr.push(i);
   }
   function test_1() {
-    var a = [], b = Math.random();
-    for (var i = 0; i < 10; i++) {
-      a.push(arr[Math.floor(b *= 128)]);
-      b = b - Math.floor(b);
-    }
+    var a = 5, b;
+    if(a == 1){b = a}
+    else if(a == 2){b = a}
+    else if(a == 3){b = a}
+    else if(a == 4){b = a}
+    else if(a == 5){b = a}
+    else if(a == 6){b = a}
+    else if(a == 7){b = a}
+    else if(a == 8){b = a}
+    else if(a == 9){b = a}
+    else if(a == 10){b = a}
     //console.log(a)
   }
 
   function test_2() {
-    var a = [];
-    for (var i = 0; i < 10; i++) {
-      a.push(arr[Math.floor(Math.random() * 100)]);
+    var a = 5, b;
+    switch(a){
+      case 1: b = a; break;
+      case 2: b = a; break;
+      case 3: b = a; break;
+      case 4: b = a; break;
+      case 5: b = a; break;
+      case 6: b = a; break;
+      case 7: b = a; break;
+      case 8: b = a; break;
+      case 9: b = a; break;
+      case 10: b = a; break;
     }
-    //console.log(a)
   }
 
   function test(func) {
