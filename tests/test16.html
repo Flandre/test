@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="test1" onclick="foo1()">
+  <button id="btn" onclick="foo2()">button</button>
+</div>
+<script>
+  function foo1(){
+    alert('DIV')
+  }
+  function foo2(e){
+    e.preventDefault();
+    e.stopPropagation();
+    alert('BUTTON')
+  }
+</script>
+</body>
+</html>
