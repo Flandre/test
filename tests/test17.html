@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  class Dog {
+    constructor(name) {
+      this._names = [...name];
+    }
+
+    like(name, food) {
+      console.log(`${name} like ${food}`);
+    }
+
+    speak() {
+      const foods = ['bones', 'dog food'];
+      this._names.map((name, index) => {
+        this.like(name, foods[index % 2])
+      })
+    }
+  }
+
+  var d = new Dog(['Mitzie', 'Jeb', 'Poe']);
+
+  d.speak();
+  // Mitzie like bones
+  // Jeb like dog food
+  // Poe like bones
+</script>
+</html>

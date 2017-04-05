@@ -5,18 +5,19 @@
   <title>Title</title>
 </head>
 <body>
-<div id="test1" onclick="foo1()">
-  <button id="btn" onclick="foo2()">button</button>
-</div>
 <script>
-  function foo1(){
-    alert('DIV')
+  class Dog {
+    constructor(names = []){
+      this._names = [...names];
+    }
+    bark() {
+      const currName = this._names[0];
+      alert(`one one ${currName}`);
+    }
   }
-  function foo2(e){
-    e.preventDefault();
-    e.stopPropagation();
-    alert('BUTTON')
-  }
+
+  let d = new Dog(['jeb']);
+  d.bark()
 </script>
 </body>
 </html>
