@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- for file
+  <script src="react.js"></script>
+  <script src="react-dom.js"></script>
+  <script src="react-bootstrap.js"></script>
+  <script src="babel.js"></script>
+  -->
+
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <script src="https://cdn.bootcss.com/react/15.5.4/react.min.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.5.4/react-dom.min.js"></script>
+  <script src="https://cdn.bootcss.com/react-bootstrap/0.31.0/react-bootstrap.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>
+
+  <style>
+    .container {
+      padding-top: 30px;
+    }
+    .btn-group {
+      width: 100%;
+      display: flex;
+    }
+    .btn-group > button {
+      flex: 1;
+    }
+  </style>
+
+</head>
+<body>
+<div class="container" id="test"></div>
+<script type="text/babel">
+  const {ButtonToolbar, ButtonGroup, Button} = ReactBootstrap;
+  const ButtonTest = React.createClass({
+    getInitialState() {
+      return {
+        type: 'left'
+      };
+    },
+    handleClick(e){
+      this.setState({
+        type: e.currentTarget.value
+      });
+    },
+    render() {
+      console.log(this.state.type)
+      return (
+        <div>
+          <ButtonToolbar>
+            <ButtonGroup bsSize="large">
+              <Button
+                value="left"
+                onClick={this.handleClick.bind(this)}
+                bsStyle={this.state.type === 'left' ? 'info' : 'default'}
+              >
+                Left
+              </Button>
+              <Button
+                value="middle"
+                onClick={this.handleClick.bind(this)}
+                bsStyle={this.state.type === 'middle' ? 'info' : 'default'}
+              >
+                Middle
+              </Button>
+              <Button
+                value="right"
+                onClick={this.handleClick}
+                bsStyle={this.state.type === 'right' ? 'info' : 'default'}
+              >
+                Right
+              </Button>
+            </ButtonGroup>
+          </ButtonToolbar>
+        </div>
+      );
+    }
+  });
+  const container = document.getElementById('test');
+  ReactDOM.render(
+    <ButtonTest/>
+    , container);
+</script>
+</body>
+</html>
