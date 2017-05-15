@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+  <title>Title</title>
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .ls-type {
+      -webkit-appearance: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <form>
+    <div class="msg" style="display: none;"></div>
+    <div class="form-group">
+      <label>这里的select是去除默认样式的</label>
+      <select class="form-control ls-type" data-info="号牌类型"> <option value="0">请选择</option> <option value="01">大型汽车</option><option value="02">小型汽车</option></select>
+    </div>
+    <div class="form-group">
+      <label>这里的select是默认样式</label>
+      <div class="row">
+        <div class="col-xs-4">
+          <select class="form-control area-select" data-info="车牌前缀"> <option value="0">请选择</option> <option value="京">京</option><option value="沪">沪</option><option value="津">津</option><option value="皖">皖</option><option value="闽">闽</option><option value="甘">甘</option><option value="粤">粤</option><option value="贵">贵</option><option value="琼">琼</option><option value="冀">冀</option><option value="豫">豫</option><option value="黑">黑</option><option value="鄂">鄂</option><option value="吉">吉</option><option value="苏">苏</option><option value="蒙">蒙</option><option value="宁">宁</option><option value="青">青</option><option value="鲁">鲁</option><option value="晋">晋</option><option value="陕">陕</option><option value="川">川</option><option value="新">新</option><option value="云">云</option><option value="浙">浙</option><option value="渝">渝</option></select>
+        </div>
+        <div class="col-xs-8">
+          <input type="text" class="form-control" name="plate-number" placeholder="请输入车牌号码" data-type="1" data-length="6" data-info="车牌号码">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>发动机号</label>
+      <input type="text" class="form-control" name="engine-number" placeholder="请输入全部发动机号" data-type="1" data-info="发动机号">
+    </div>
+    <div class="form-group">
+      <label>车架号</label>
+      <input type="text" class="form-control" name="frame-number" placeholder="请输入全部车架号" data-type="2" data-info="车架号">
+    </div>
+    <button class="btn btn-primary btn-lg btn-block">立即查询</button>
+    <div class="form-desc">
+      <p>所填信息为当地交管局查询所必需信息，我们将对您的信息严格保密，请放心填写。</p>
+    </div>
+  </form>
+</div>
+</body>
+</html>

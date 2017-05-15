@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<select class="test">
+
+</select>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/core.js"></script>
+<script>
+  var t = $('test'), arr = [1, 2, 3, 4, 5];
+  arr.forEach(function(ele, idx){
+    t.append('<option>' + + '</option>')
+  })
+</script>
+</body>
+</html>
