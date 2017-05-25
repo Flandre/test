@@ -15,14 +15,8 @@
 <script>
   var info = $('.info')
   info.append('<p>wx config</p>')
-  wx.config({
-    jsApiList: ['previewImage']
-  })
   info.append('<p>wx config end</p>')
   info.append('<p>wx ready</p>')
-  wx.ready(function(){
-    info.append('<p>ready</p>')
-  })
   info.append('<p>wx ready end</p>')
   $('img').each(function(){
     var img = $(this), url = location.href + img.attr('src');
