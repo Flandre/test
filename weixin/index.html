@@ -8,25 +8,27 @@
 <body>
 <img src="test.jpg" alt="test">
 <img src="test2.png" alt="test">
+<p class="info"></p>
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script>
-  alert('wx config')
+  var info = $('.info')
+  info.append('<p>wx config</p>')
   wx.config({
     jsApiList: ['previewImage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
   })
   wx.ready(function(){
-    alert('ready')
+    info.append('<p>ready</p>')
   })
   $('img').each(function(){
     var img = $(this), url = location.href + img.attr('src');
     img.on('click', function(e){
-      alert(url)
+      info.append('<p>'+url+'</p>')
       e.preventDefault();
       /* 判断微信环境，微信使用原生图片浏览，普通浏览器直接打开图片 */
       if(window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'){
-        alert('preview start')
+        info.append('<p>preview start</p>')
         wx.previewImage({
           current: url, // 当前显示图片的http链接
           urls: [url] // 需要预览的图片http链接列表
@@ -35,6 +37,6 @@
         location.href = src;
       }
     })
-  })``
+  })
 </script>
 </html>
