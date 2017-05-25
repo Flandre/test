@@ -9,6 +9,7 @@
 <img src="test.jpg" alt="test">
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script>
   $('img').each(function(){
     var img = $(this), url = location.href + img.attr('src');
@@ -16,14 +17,12 @@
       e.preventDefault();
       /* 判断微信环境，微信使用原生图片浏览，普通浏览器直接打开图片 */
       if(window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'){
-        if (window.WeixinJSBridge) {
-          if(url !== ""){
-            WeixinJSBridge.invoke('imagePreview', {
-              'current': url,
-              'urls': [url]
-            });
-          }
-        }
+        wx.ready(function(){
+          wx.previewImage({
+            current: url, // 当前显示图片的http链接
+            urls: [url] // 需要预览的图片http链接列表
+          });
+        })
       } else {
         location.href = src;
       }
