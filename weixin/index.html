@@ -18,6 +18,51 @@
 <script>
   var info = $('.info')
   info.append('<p>wx config</p>')
+  wx.config({
+    debug: false,
+    appId: 'wxf8b4f85f3a794e77',
+    timestamp: 1495706467,
+    nonceStr: 'o2nvWhy6qjOa6K1g',
+    signature: '331230419bdbc967255399ecece6178e0223e55f',
+    jsApiList: [
+      'checkJsApi',
+      'onMenuShareTimeline',
+      'onMenuShareAppMessage',
+      'onMenuShareQQ',
+      'onMenuShareWeibo',
+      'onMenuShareQZone',
+      'hideMenuItems',
+      'showMenuItems',
+      'hideAllNonBaseMenuItem',
+      'showAllNonBaseMenuItem',
+      'translateVoice',
+      'startRecord',
+      'stopRecord',
+      'onVoiceRecordEnd',
+      'playVoice',
+      'onVoicePlayEnd',
+      'pauseVoice',
+      'stopVoice',
+      'uploadVoice',
+      'downloadVoice',
+      'chooseImage',
+      'previewImage',
+      'uploadImage',
+      'downloadImage',
+      'getNetworkType',
+      'openLocation',
+      'getLocation',
+      'hideOptionMenu',
+      'showOptionMenu',
+      'closeWindow',
+      'scanQRCode',
+      'chooseWXPay',
+      'openProductSpecificView',
+      'addCard',
+      'chooseCard',
+      'openCard'
+    ]
+  });
   info.append('<p>wx config end</p>')
   info.append('<p>wx ready</p>')
   info.append('<p>wx ready end</p>')
