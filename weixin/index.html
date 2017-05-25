@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+  <title>Title</title>
+</head>
+<body>
+<img src="test.jpg" alt="test">
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script>
+  $('img').each(function(){
+    var img = $(this), url = img.attr('src');
+    img.on('click', function(e){
+      e.preventDefault();
+      /* 判断微信环境，微信使用原生图片浏览，普通浏览器直接打开图片 */
+      if(window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'){
+        if (window.WeixinJSBridge) {
+          if(url !== ""){
+            WeixinJSBridge.invoke('imagePreview', {
+              'current':url,
+              'urls': [url]
+            });
+          }
+        }
+      } else {
+        location.href = src;
+      }
+    })
+  })
+</script>
+</html>
