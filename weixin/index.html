@@ -12,7 +12,7 @@
 <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script>
   $('img').each(function(){
-    var img = $(this), url = location.href + img.attr('src');
+    var img = $(this), url = img.attr('src');
     img.on('click', function(e){
       e.preventDefault();
       /* 判断微信环境，微信使用原生图片浏览，普通浏览器直接打开图片 */
