@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<a href="index.html">
+  <div>
+    <img src="test2.png" alt="">
+  </div>
+</a>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script>
+  $('img').each(function(){
+    var img = $(this), url = img.attr('src');
+    img.on('click', function(e){
+      if(!img.parents('a').length){
+        e.preventDefault();
+        location.href = url;
+      }
+    })
+  })
+</script>
+</html>
