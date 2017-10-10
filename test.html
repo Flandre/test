@@ -10,16 +10,16 @@
   $.get('http://wgeo.weather.com.cn/ip/?_=' + (new Date()).getTime(), function(d){
     document.write('IP接口： <br>' + d)
   });
-//  $.ajax({
-//    url: 'http://wgeo.weather.com.cn/ip/?_=' + (new Date()).getTime(),
-//    beforeSend: function (xhr) {   //beforeSend定义全局变量
-//
-//      xhr.setRequestHeader("Referer", "http://www.weather.com.cn/");
-//    },
-//    success: function(d){
-//      console.log(d)
-//    }
-//  });
+  $.ajax({
+    url: 'http://wgeo.weather.com.cn/ip/?_=' + (new Date()).getTime(),
+    beforeSend: function (xhr) {   //beforeSend定义全局变量
+
+      xhr.setRequestHeader("Referer", "http://www.weather.com.cn/");
+    },
+    success: function(d){
+      console.log(d)
+    }
+  });
   $.get('http://wgeo.weather.com.cn/index.html?_=' + (new Date()).getTime(), function(d){
     document.write('直接用index.html： <br>' + d)
   });
