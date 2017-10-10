@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $.getScript('http://wgeo.weather.com.cn/ip/?_=' + (new Date()).getTime(), function(d){
+    document.write('IP接口： <br>' + d)
+  });
+  $.getScript('http://wgeo.weather.com.cn/index.html?_=' + (new Date()).getTime(), function(d){
+    document.write('直接用index.html： <br>' + d)
+  });
+</script>
+</body>
+</html>
