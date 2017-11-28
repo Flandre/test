@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+    #main {
+      display: block;
+      width: 200px;
+      height: 200px;
+      margin: 60px auto 25px;
+    }
+    span {
+      display: block;
+      color: #666;
+      font-size: 13px;
+      text-align: center;
+    }
+    .active{
+      animation: imageActive 200ms linear
+    }
+    @keyframes imageActive {
+      from, to {
+        transform: scale(1, 1);
+      }
+      40% {
+        transform: scale(.9, .9);
+      }
+    }
+  </style>
+</head>
+<body>
+<img src="1.png" id="main" onclick="onPicClick(this)">
+<span>网络不给力,点击屏幕重新加载</span>
+</body>
+<script>
+  function onPicClick(dom) {
+    dom.setAttribute("class", "active")
+    setTimeout(function(){
+      dom.setAttribute("class", "")
+    }, 200)
+    JS_YCX.onReload();
+  }
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<p>
+  <audio src="http://localhost:63342/test/audio/AudioTest%20(1).ogg" controls id="audio">
+    Your browser does not support the <code>audio</code> element.
+  </audio>
+</p>
+<p>
+  <button onclick="play()">开始</button>
+  <button onclick="pause()">暂停</button>
+  <button onclick="setCurrent()">设置到第2秒</button>
+</p>
+</body>
+<script>
+  let au = document.querySelector('#audio')
+  const play = () => au.play()
+  const pause = () => au.pause()
+  const setCurrent = () => au.currentTime = 2
+</script>
+</html>
