@@ -9,14 +9,14 @@
 <p id="out"></p>
 <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 <script>
-  var unit = ['元', '万', '亿', '万'];
+  var unit = ['圆', '万', '亿', '万'];
   var unitrep = ['', '拾', '佰', '仟'];
   var Numlist = [];
   $('#ipt').on('change', function () {
     Numlist = [];
     var ipt = $(this).val();
     if (/^\d{1,16}(\.\d{1,2}){0,1}$/.test(ipt)) {
-      var numarr = ipt.split('.');
+      var numarr = parseFloat(ipt).toString().split('.');
       if (!numarr[1]) {
         numarr.push('00')
       } else {
@@ -79,6 +79,11 @@
           }
         }
       }
+      if(Numlist[Numlist.length - 1] == '圆')
+        Numlist.pop()
+      if(Numlist[Numlist.length - 1] == '零')
+        Numlist.pop()
+      console.log(Numlist)
 
       $('#out').text(Numlist.reverse().join(''))
 
